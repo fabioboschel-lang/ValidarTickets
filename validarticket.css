@@ -1,1 +1,211 @@
+/* ============================================================
+   BASE
+   ============================================================ */
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* ============================================================
+   SCANNER
+   ============================================================ */
+
+.scanner-view {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #000;
+}
+
+
+/* ============================================================
+   CÁMARA
+   ============================================================ */
+
+#reader {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: #000;
+}
+
+
+/*
+ * Video generado por Html5Qrcode.
+ *
+ * La cámara ocupa toda la pantalla.
+ */
+
+#reader video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+
+  border: none !important;
+}
+
+
+/*
+ * Eliminar cualquier elemento visual
+ * que Html5Qrcode pueda utilizar como
+ * región de escaneo.
+ */
+
+#reader canvas {
+  display: none !important;
+}
+
+
+/* ============================================================
+   RESULTADO
+   ============================================================ */
+
+.result {
+  position: absolute;
+
+  left: 50%;
+  bottom: 35px;
+
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  width: auto;
+  max-width: calc(100% - 40px);
+
+  padding: 12px 20px;
+
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  color: #fff;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   ESTADOS
+   ============================================================ */
+
+
+/*
+ * Podés aplicar estas clases posteriormente
+ * desde JavaScript:
+ *
+ * result.classList.add("ticket-valid");
+ *
+ * o:
+ *
+ * result.classList.add("ticket-invalid");
+ */
+
+
+/* Ticket válido */
+
+.result.ticket-valid {
+
+  background: rgba(
+    0,
+    150,
+    70,
+    0.9
+  );
+
+  color: #fff;
+
+}
+
+
+/* Ticket inválido */
+
+.result.ticket-invalid {
+
+  background: rgba(
+    210,
+    35,
+    35,
+    0.9
+  );
+
+  color: #fff;
+
+}
+
+
+/* Ticket ya utilizado */
+
+.result.ticket-used {
+
+  background: rgba(
+    220,
+    140,
+    0,
+    0.9
+  );
+
+  color: #fff;
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  .result {
+
+    bottom: 25px;
+
+    max-width:
+      calc(100% - 30px);
+
+    padding:
+      11px 16px;
+
+    font-size: 15px;
+
+  }
+
+}
